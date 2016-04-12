@@ -60,6 +60,7 @@
 			this.tsmiRetry.Name = "tsmiRetry";
 			this.tsmiRetry.Size = new System.Drawing.Size(152, 22);
 			this.tsmiRetry.Text = "重试";
+			this.tsmiRetry.Click += new System.EventHandler(this.tsmiRetry_Click);
 			// 
 			// tsmiAbout
 			// 
@@ -67,6 +68,7 @@
 			this.tsmiAbout.Name = "tsmiAbout";
 			this.tsmiAbout.Size = new System.Drawing.Size(152, 22);
 			this.tsmiAbout.Text = "关于";
+			this.tsmiAbout.Click += new System.EventHandler(this.tsmiAbout_Click);
 			// 
 			// tsmiQuit
 			// 
@@ -86,6 +88,7 @@
 			this.ShowInTaskbar = false;
 			this.Text = "Bing壁纸";
 			this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+			this.Load += new System.EventHandler(this.MainForm_Load);
 			this.contextMenuStrip.ResumeLayout(false);
 			this.ResumeLayout(false);
 
