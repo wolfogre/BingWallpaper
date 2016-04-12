@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Net;
-using System.IO;
-using System.Text.RegularExpressions;
-using System.Runtime.InteropServices;
-using System.Threading;
-using System.Text;
 
 namespace BingWallpaper
 {
