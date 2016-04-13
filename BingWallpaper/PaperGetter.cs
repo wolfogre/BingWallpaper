@@ -20,6 +20,10 @@ namespace BingWallpaper
 
 		const uint SPI_GETDESKWALLPAPER = 0x0073;
 		const uint SPI_SETDESKWALLPAPER = 0x0014;
+
+		const int SPIF_UPDATEINIFILE = 0x01;
+		const int SPIF_SENDWININICHANGE = 0x02;
+
 		const uint MAX_PATH = 1000;
 
 		[DllImport("user32.dll")]
@@ -94,7 +98,7 @@ namespace BingWallpaper
 					return;
 				}
 
-				SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, new StringBuilder(newWallpaper), 0);
+				SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, new StringBuilder(newWallpaper), SPIF_UPDATEINIFILE | SPIF_SENDWININICHANGE);
 			}
 			catch (Exception ex)
 			{
