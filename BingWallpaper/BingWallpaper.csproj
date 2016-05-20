@@ -108,9 +108,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bing-icon.ico" />
-    <None Include="res\ic_power_settings_new_black_18dp.png" />
-    <None Include="res\ic_loop_black_18dp.png" />
-    <None Include="res\ic_info_outline_black_18dp.png" />
+    <Content Include="Resources\bing-icon.ico" />
+    <Content Include="Resources\ic_info_outline_black_18dp.png" />
+    <Content Include="Resources\ic_loop_black_18dp.png" />
+    <Content Include="Resources\ic_power_settings_new_black_18dp.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

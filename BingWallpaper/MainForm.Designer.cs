@@ -52,13 +52,13 @@
             this.tsmiAbout,
             this.tsmiQuit});
 			this.contextMenuStrip.Name = "contextMenuStrip";
-			this.contextMenuStrip.Size = new System.Drawing.Size(153, 92);
+			this.contextMenuStrip.Size = new System.Drawing.Size(101, 70);
 			// 
 			// tsmiRetry
 			// 
 			this.tsmiRetry.Image = global::BingWallpaper.Properties.Resources.ic_loop_black_18dp;
 			this.tsmiRetry.Name = "tsmiRetry";
-			this.tsmiRetry.Size = new System.Drawing.Size(152, 22);
+			this.tsmiRetry.Size = new System.Drawing.Size(100, 22);
 			this.tsmiRetry.Text = "重试";
 			this.tsmiRetry.Click += new System.EventHandler(this.tsmiRetry_Click);
 			// 
@@ -66,7 +66,7 @@
 			// 
 			this.tsmiAbout.Image = global::BingWallpaper.Properties.Resources.ic_info_outline_black_18dp;
 			this.tsmiAbout.Name = "tsmiAbout";
-			this.tsmiAbout.Size = new System.Drawing.Size(152, 22);
+			this.tsmiAbout.Size = new System.Drawing.Size(100, 22);
 			this.tsmiAbout.Text = "关于";
 			this.tsmiAbout.Click += new System.EventHandler(this.tsmiAbout_Click);
 			// 
@@ -74,7 +74,7 @@
 			// 
 			this.tsmiQuit.Image = global::BingWallpaper.Properties.Resources.ic_power_settings_new_black_18dp;
 			this.tsmiQuit.Name = "tsmiQuit";
-			this.tsmiQuit.Size = new System.Drawing.Size(152, 22);
+			this.tsmiQuit.Size = new System.Drawing.Size(100, 22);
 			this.tsmiQuit.Text = "退出";
 			this.tsmiQuit.Click += new System.EventHandler(this.tsmiQuit_Click);
 			// 
@@ -88,6 +88,7 @@
 			this.ShowInTaskbar = false;
 			this.Text = "Bing壁纸";
 			this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
 			this.Load += new System.EventHandler(this.MainForm_Load);
 			this.contextMenuStrip.ResumeLayout(false);
 			this.ResumeLayout(false);

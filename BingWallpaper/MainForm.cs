@@ -1,5 +1,6 @@
 ﻿using CountlySDK;
 using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace BingWallpaper
@@ -15,7 +16,7 @@ namespace BingWallpaper
 
 		private void MainForm_Load(object sender, EventArgs e)
 		{
-			Countly.StartSession("http://countly.wolfogre.com", "bdb2627a3e46353c93c60c566f045cc4d0c99005");
+			Countly.StartSession("http://countly.wolfogre.com", "bdb2627a3e46353c93c60c566f045cc4d0c99005", System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString());
 			paperGetter = new PaperGetter(notifyIcon);
 			Countly.RecordEvent("Start");
 			paperGetter.Start();
@@ -29,7 +30,7 @@ namespace BingWallpaper
 
 		private void tsmiAbout_Click(object sender, EventArgs e)
 		{
-			Countly.RecordEvent("Abort");
+			Countly.RecordEvent("About");
 			System.Diagnostics.Process.Start("http://blog.wolfogre.com/2016/04/11/280.html");
 		}
 
@@ -38,6 +39,14 @@ namespace BingWallpaper
 			Countly.RecordEvent("Quit");
 			paperGetter.Abort();
 			Application.Exit();
+		}
+
+		private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			if (Directory.Exists("countly"))
+			{
+				Directory.Delete("countly", true);
+			}
 		}
 	}
 }
