@@ -88,7 +88,6 @@
 			this.ShowInTaskbar = false;
 			this.Text = "Bing壁纸";
 			this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
-			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
 			this.Load += new System.EventHandler(this.MainForm_Load);
 			this.contextMenuStrip.ResumeLayout(false);
 			this.ResumeLayout(false);

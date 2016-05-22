@@ -102,6 +102,10 @@ namespace BingWallpaper
 
 				SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, new StringBuilder(newWallpaper), SPIF_UPDATEINIFILE | SPIF_SENDWININICHANGE);
 			}
+			catch (ThreadAbortException)
+			{
+				return;
+			}
 			catch (Exception ex)
 			{
 				notifyIcon.Text = "Bing壁纸";
