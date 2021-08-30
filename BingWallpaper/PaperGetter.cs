@@ -15,8 +15,8 @@ namespace BingWallpaper
 
 		Thread backgroundThread;
 		NotifyIcon notifyIcon;
-		string bingUrl = "http://www.bing.com";
-		string bingPaperUrl = "http://www.bing.com/HPImageArchive.aspx?idx=0&n=1";
+		string bingUrl = "https://cn.bing.com";
+		string bingPaperUrl = "https://cn.bing.com/HPImageArchive.aspx?format=xml&idx=0&n=1&mkt=zh-cn";
 		string wallpaperPath = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures) + @"\BingWallpaper\";
 
 		const uint SPI_GETDESKWALLPAPER = 0x0073;
@@ -67,15 +67,15 @@ namespace BingWallpaper
 				HttpWebRequest request = (HttpWebRequest)WebRequest.Create(bingPaperUrl);
 				HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 				StreamReader reader = new StreamReader(response.GetResponseStream());
-				MatchCollection matchs = Regex.Matches(reader.ReadToEnd(), "<url>.*?</url>");
+				MatchCollection matchs = Regex.Matches(reader.ReadToEnd(), "<urlBase>.*?</urlBase>");
 				response.Close();
 
 				if (matchs.Count != 1)
 					throw new Exception("提取壁纸URL出错！程序可能永久失效！");
 
-				string wallpaperUrl = bingUrl + matchs[0].Value.Substring("<url>".Length, matchs[0].Value.Length - "<url>".Length - "</url>".Length);
-				wallpaperUrl = wallpaperUrl.Replace("1366x768", "1920x1080");
-				string wallpaperName = wallpaperUrl.Substring(wallpaperUrl.LastIndexOf("/") + 1);
+				string wallpaperUrl = bingUrl + matchs[0].Value.Substring("<urlBase>".Length, matchs[0].Value.Length - "<urlBase>".Length - "</urlBase>".Length);
+				wallpaperUrl = wallpaperUrl + "_UHD.jpg";
+				string wallpaperName = wallpaperUrl.Substring(wallpaperUrl.IndexOf("=") + 1);
 				string newWallpaper = wallpaperPath + wallpaperName;
 
 				if (!File.Exists(newWallpaper))
